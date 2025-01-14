@@ -14,13 +14,23 @@ This notebook demonstrates how to:
 
 ```python
 # Required imports
-import librosa
+import os
 import numpy as np
-import torch
-import torch.nn as nn
+import librosa
+import librosa.display
 import matplotlib.pyplot as plt
-import pandas as pd
-from IPython.display import Audio
+from sklearn.model_selection import train_test_split
+from tensorflow.keras.utils import to_categorical
+from sklearn.preprocessing import LabelEncoder
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import (
+    Conv2D, MaxPooling2D, BatchNormalization, 
+    Flatten, Dense, Dropout, Input, GlobalAveragePooling2D
+)
+from tensorflow.keras.callbacks import (
+    EarlyStopping, ModelCheckpoint, ReduceLROnPlateau
+)
+from tensorflow.keras.regularizers import l2
 ```
 
 ## 📓 Notebook Structure
